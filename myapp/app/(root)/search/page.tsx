@@ -3,6 +3,7 @@ import { currentUser } from "@clerk/nextjs";
 import Searchbar from "@/components/shared/Searchbar";
 import { fetchUser, fetchUsers } from "@/lib/actions/user.action";
 import UserCard from "@/components/cards/UserCard";
+import Pagination from "@/components/shared/Pagination";
 
 const Page = async({searchParams} : {searchParams: { [key: string]: string | undefined };}) => {
 
@@ -43,6 +44,12 @@ const Page = async({searchParams} : {searchParams: { [key: string]: string | und
                     </>
                 )}
             </div>
+
+        <Pagination
+            path='search'
+            pageNumber={searchParams?.page ? +searchParams.page : 1}
+            isNext={result.isNext}
+        />
 
         </section>
     )

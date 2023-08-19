@@ -2,6 +2,7 @@ import React from 'react'
 import { ClerkProvider } from "@clerk/nextjs";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { dark } from "@clerk/themes";
 
 import "../globals.css";
 import Topbar from "@/components/shared/Topbar";
@@ -22,7 +23,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <ClerkProvider>
+    <ClerkProvider appearance={{baseTheme : dark}}>
       <html lang="en">
         <body className={inter.className}>
           <Topbar />
